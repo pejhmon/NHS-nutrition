@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link href="lib/jquery/jquery-ui-1.11.2.min.css" rel="stylesheet">
+		<link href="lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="css/timepicker.css" rel="stylesheet" />
+		<link href="css/weight.css" rel="stylesheet">
+		<link href="css/standardPage.css" rel="stylesheet">
+
+		<script src="lib/jquery/jquery.js"></script>
+		<script src="lib/jquery/jquery-ui-1.11.2.min.js"></script>
+		<script src="lib/bootstrap/bootstrap.min.js"></script>
+		<script src="lib/knockout/Knockout-v2.2.0.js"></script>
+	
+		<script src="scripts/RequirementsCalculator.js"></script>
+		<script src="scripts/cookie.js"></script>
+		<script src="scripts/util/Validator.js"></script>
+		<script src="scripts/OnLoad.js"></script>
+		<script src="scripts/SubmitController.js"></script>
+		<script src="scripts/database/server/ServerDBAdapter.js"></script>
+		<script src="scripts/timepicker.js"></script>
+		<script src="scripts/util/dateTimePicker.js"></script>
+		<script src="scripts/Navigator.js"></script>
+		<script src="scripts/database/local/symptomJSON.js"></script>
+		<script src="scripts/symptoms.js"></script>
+		
+		<title>APPetite</title>
+	</head>
+
+	<body onload="OnLoad.prototype.load('weight')">
+		<nav class="navbar navbar-default" role="navigation">
+    		
+ 				<div class="col-xs-2 border">
+ 					<button class="btn btn-default navbar-btn" id="nav-button" onclick="Navigator.prototype.back()">
+ 						<i class="glyphicon glyphicon-chevron-left"></i>
+ 					</button>
+    			</div>
+      			<div class="col-xs-8 border navbar-title">Weight</div>
+      			<div class="col-xs-2 visible-xs-block border">
+	      			<span style="float:right">
+	      				<button class="btn btn-default navbar-btn" data-toggle="collapse" 
+	      					data-target="#navbar-collapse" id="toggle-button">
+	      					<i class="glyphicon glyphicon-cog"></i>
+	      				</button>
+	     			</span>
+	      		</div>
+	      		<div class="collapse navbar-collapse" id="navbar-collapse">
+	      			<ul class="nav navbar-nav navbar-right">
+	        			<li><a href="#" id="log_out" onclick="SubmitController.prototype.submit(this.id)">Log out</a></li>
+	      			</ul>
+	    		</div>
+      		
+		</nav>
+
+		<div class="container">
+		<div class="whiteBackground">
+		<div class="panel-body tab-panel">
+			<div class="panel-body">
+				<h4>It is recommended to enter your weight a maximum of once per week</h4>
+				<h6 align="center">Please check if appropriate</h6>
+				<div style="display: inline">
+					<div class="form-group">
+						<div class="row"></div>
+						<div class="panel-body">
+							<div>
+								<ul class="list-group checked-list-box" id="swellings">
+									<li class="list-group-item" id="swollenFeet">I have swollen feet.</li>
+									<li class="list-group-item" id="swollenLegs">I have swollen legs.</li>
+									<li class="list-group-item" id="swollenAbdomen">I have a swollen abdomen.</li>
+								</ul>
+							</div>
+						</div>
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-4">
+									<div class="left-inner-addon ">
+										<i class ="glyphicon glyphicon-calendar"></i>
+											<input type="text" class="form-control date" placeholder="Date" id="datetime" readonly="readonly" style="cursor :default">
+									</div>
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="container">
+							<div class="row">
+								<label class="col-sm-2">Current Weight</label>
+									<label class="col-sm-5" id="currentWeight"></label>
+									<div>
+										<label class="col-sm-2">Update Weight</label>
+										<input class="col-sm-1" id="newWeight" type="number">
+									</div>
+							</div>
+						</div><br>
+						<div class=" col-sm-12">
+						<button class="btn btn-lg btn-success btn-block" id="btn_submit_weight"
+							onclick="SubmitController.prototype.submit(this.id)">Save
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		</div>
+		</div>
+	</body>
+</html>

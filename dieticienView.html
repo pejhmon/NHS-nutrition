@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	    <meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<link href="lib/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+    	<link href="lib/jquery/jquery-ui-1.11.2.min.css" rel="stylesheet" />
+    	<link href="css/standardPage.css" rel="stylesheet">
+    	
+    	<script src="lib/jquery/jquery-2.1.1.min.js"></script>
+		<script src="lib/jquery/jquery-ui-1.11.2.min.js"></script>
+    	<script src="lib/bootstrap/bootstrap.min.js"></script>
+		<script src="lib/bootstrap/bootstrap.min.js"></script>
+		<script src="lib/knockout/Knockout-v2.2.0.js"></script>
+	
+
+		<script src="scripts/database/local/symptomJSON.js"></script>
+		<script src="scripts/symptoms.js"></script>
+		
+		<title>APPetite</title>
+    	
+  	</head>
+  	<body>
+ 		<nav class="navbar navbar-default" role="navigation">
+    		<div class="row">
+ 				<div class="col-xs-2 border">
+ 					<button class="btn btn-default navbar-btn" id="nav-button" onclick="Navigator.prototype.back()">
+ 						<i class="glyphicon glyphicon-chevron-left"></i>
+ 					</button>
+    			</div>
+      			<div class="col-xs-8 border navbar-title">Dietician Overview</div>
+      			<div class="col-xs-2 visible-xs-block border">
+	      			<span style="float:right">
+	      				<button class="btn btn-default navbar-btn" data-toggle="collapse" 
+	      					data-target="#navbar-collapse" id="toggle-button">
+	      					<i class="glyphicon glyphicon-cog"></i>
+	      				</button>
+	     			</span>
+	      		</div>
+      		</div>
+		</nav>
+    	<div class="container">
+    		<div class="search-field">
+      			<div class="input-group input-group-lg">
+  					<input type="text" class="form-control"  placeholder="Search NHS Number" id="search">
+  					<span class="input-group-btn">
+    					<button class="btn btn-default" type="button" id="searchButton">
+    						<span class="glyphicon glyphicon-search"></span>
+    					</button>
+  					</span>
+				</div>
+
+			</div>
+			<div class="panel panel-default element-margin">
+  				<div class="panel-heading">
+	  				<div class="row">
+	  					<div class="col-xs-6">
+	  						<span>Patients</span>
+	  					</div>
+	  				</div>
+  				</div>
+				<div class="panel-body selection-body"  style="max-height: 400px; overflow: auto;">
+					<ul class="list-group selection-list" role="menu" id="selectable">
+					<li class="list-group-item">NHS Number: 183894798289</li>
+					<li class="list-group-item">NHS Number: 183894798289</li>
+					<li class="list-group-item">NHS Number: 183894798289</li>
+					<li class="list-group-item">NHS Number: 183894798289</li>
+					<li class="list-group-item">NHS Number: 183894798289</li>
+					<li class="list-group-item">NHS Number: 183894798289</li>
+					<li class="list-group-item">NHS Number: 183894798289</li>
+  </ul>
+				</div>
+			</div>
+			
+		    <div id="submitSession">
+		    	<button class="btn btn-lg btn-success btn-block" id="btn_submit_foods"
+		    		onclick="SubmitController.prototype.submit(this.id)">Select Patient</button> 
+		    </div>
+    	</div>
+  	</body>
+</html>

@@ -1,0 +1,426 @@
+body{
+	display:block;
+	position: relative;
+	background-color:#eee;
+
+}
+.blue{
+	color:#0EBFE9;
+}
+.row{
+	
+	margin-right:0px;
+	margin-left:0px;
+}
+.container{
+	margin-bottom:30px;	
+	
+}
+.navbar-title{
+	padding-top:15px;
+	text-align:center;
+	color:white;
+	font-size:18px;
+	line-height:20px;
+	}
+
+.navbar-margin{
+	margin-left:5px;
+	margin-right:5px
+	
+}
+	
+.space-margin{
+	margin-top:25px;
+}
+.element-margin{
+	margin-top:15px;
+}
+
+.back{
+	vertical-align:central;
+	}
+
+.greeding{
+	
+	font-size:16px;
+	
+	}
+
+.ui-autocomplete {
+    max-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 5px;
+}
+.selection-list{
+	display:block;
+	max-height:300px;
+	overflow-y:scroll;
+}
+.selection-body{
+	height:350px;
+}
+.history-panel{
+	height:400px;
+}
+.login-table,
+.register-table
+{
+	padding-left:5%;
+	padding-right:5%;
+	border:0; 
+	width:100%; 
+	text-align: center;
+	border-collapse:separate;
+	border-spacing:1em;
+	
+}
+.modal-form > input,
+.modal-form > button{
+	margin-top: 10px;	
+}
+
+.btn-signup{
+	display:block;
+	max-width:767px;
+	align:center;
+	margin:10px auto;
+}
+
+.form-signin,
+.form-signup
+{
+	align:center;
+	max-width:767px;
+	margin:auto;
+	padding-top:20px;
+	}
+
+.center{
+	position:absolute;
+	left:50%;
+	top:50%;
+	z-index:1040;
+}
+.tab-panel{
+	
+	width:100%;
+	height:100%;
+	
+}	
+
+.visualisationBody{
+	max-height:260px;
+	overflow-x:scroll;
+	overflow-y:scroll;
+}
+
+.scroll-table {
+    width: 100% 
+}
+
+.scroll-table > thead,
+.scroll-table > tbody,
+.scroll-table > thead > tr,
+.scroll-table > tbody > tr,
+.scroll-table > thead > tr > th,
+.scroll-table > tbody > tr > td {
+    display: block;
+}
+
+.scroll-table > tbody > tr:after,
+.scroll-table > thead > tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+.scroll-table > tbody {
+    overflow-y: auto;
+    height: 240px;
+}
+
+.scroll-table > tbody > tr > td,
+.scroll-table > thead > tr > th {
+    width: 25%;
+    float: left;
+}
+#summary{
+	max-height:260px;
+	overflow:auto;
+}
+@media (max-width:767px){
+	#remember-me{
+		visibility:hidden;
+		}
+	.navbar-center{
+		display:none;
+	}
+	}
+	
+@media(min-width:767px){
+		.mobile-navbar{
+		display:none;
+	}
+	
+}
+
+@media (max-width:767px){
+	#remember-me{
+		visibility:hidden;
+		}
+	
+	}
+
+	/* CSS REQUIRED */
+.state-icon {
+    left: -5px;
+}
+.list-group-item-primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(66, 139, 202);
+}
+
+/* DEMO ONLY - REMOVES UNWANTED MARGIN */
+.well .list-group {
+    margin-bottom: 0px;
+}
+
+
+.drop-scoring {
+	background: white;
+	color: black;
+    background-size:90% 90%;
+    height:95ßpx;
+	display:none;
+	text-align: center;
+}
+
+input.time {
+    font-size: 13px;
+    padding: 3px;;
+    background: #fff;
+    border: 1px solid #aac;
+
+}
+
+input.date {
+    font-size: 13px;
+    padding: 3px;
+    background: #fff;
+    border: 1px solid #aac;
+
+}
+
+#myform {
+    text-align: center;
+    padding: 5px;
+    border: 1px dotted #ccc;
+    margin: 2%;
+}
+
+#requirementsText{
+    text-align: center;
+
+}
+.qty {
+    width: 40px;
+    height: 25px;
+    text-align: center;
+}
+input.qtyplus { width:25px; height:25px;}
+input.qtyminus { width:25px; height:25px;}
+
+#graphImage{
+	background-color: white;
+}
+#weightImage{
+	background-color: white;
+}
+
+.left-inner-addon {
+    position: relative;
+}
+.left-inner-addon input {
+    padding-left: 30px;    
+}
+.left-inner-addon i {
+    position: absolute;
+    padding: 10px 12px;
+    pointer-events: none;
+}
+
+.right-inner-addon {
+    position: relative;
+}
+.right-inner-addon input {
+    padding-right: 30px;    
+}
+.right-inner-addon i {
+    position: absolute;
+    right: 0px;
+    padding: 10px 12px;
+    pointer-events: none;
+}
+
+/***************************
+****************************
+Below code for drop panel in Weight section
+****************************
+***************************/
+.clickable
+{
+    cursor: pointer;
+}
+
+.clickable .glyphicon
+{
+    background: rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 4px
+    
+}
+
+.panel-heading span
+{
+    margin-top: -23px;
+    font-size: 15px;
+    margin-right: -9px;
+}
+a.clickable { color: inherit; }
+a.clickable:hover { text-decoration:none; }
+
+/***********END***************/
+
+.spinner {
+  width: 100px;
+}
+.spinner input {
+  text-align: right;
+}
+.input-group-btn-vertical {
+  position: relative;
+  white-space: nowrap;
+  width: 1%;
+  vertical-align: middle;
+  display: table-cell;
+}
+.input-group-btn-vertical > .btn {
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+  padding: 8px;
+  margin-left: -1px;
+  position: relative;
+  border-radius: 0;
+}
+.input-group-btn-vertical > .btn:first-child {
+  border-top-right-radius: 4px;
+}
+.input-group-btn-vertical > .btn:last-child {
+  margin-top: -2px;
+  border-bottom-right-radius: 4px;
+}
+.input-group-btn-vertical i{
+  position: absolute;
+  top: 0;
+  left: 4px;
+}
+.dropButton{
+	width:500px;
+}
+
+.whiteBackground{
+	background-color:white;
+}
+.symptomAddButton{
+	max-width:35px;
+	height:35px;
+	text-align:centre;
+
+
+}
+#newSymptom{
+	max-width:320px;
+}
+.glyphicon-plus{
+	color:white;
+    font-size: 21px;
+  
+    display: block;
+    margin: -0.2em auto 0px;
+}
+.hiddenSymptomContainer{
+	display:none;
+}
+.hiddenSymptomContainer{
+	display:none;
+}
+
+
+div.main{
+padding: 10px 55px 40px;
+background-image: url("resources/fruitbowl.jpg");border: 15px solid white;
+box-shadow: 0 0 10px;
+border-radius: 2px;
+font-size: 13px;
+}
+.inputClass{
+width: 97.7%;
+height: 34px;
+padding-left: 5px;
+margin-bottom: 20px;
+margin-top: 8px;
+box-shadow: 0 0 5px #00F5FF;
+border: 2px solid #00F5FF;
+color: #4f4f4f;
+font-size: 16px;
+}
+.labelClass{
+color: #464646;
+text-shadow: 0 1px 0 #fff;
+font-size: 14px;
+font-weight: bold;
+}
+#login {
+width: 100%;
+background: linear-gradient(#22abe9 5%, #36caf0 100%);
+border: 1px solid #0F799E;
+font-size: 20px;
+margin-top: 15px;
+padding: 8px;
+font-weight: bold;
+cursor: pointer;
+color: white;
+text-shadow: 0px 1px 0px #13506D;
+}
+#login:hover{
+background: linear-gradient(#36caf0 5%, #22abe9 100%);
+}
+.dieticianOnly{
+	text-align: center;
+	color: white;
+}
+#headingInWhiteBackground{
+  background: rgba(2, 2, 2, .2);
+ }
+ .buttonGroup{  
+padding-left: 15%; 
+padding-right: 15%;
+position: relative; }
+
+#btn_submit_weight{
+	width: 100%;
+    display: inline-block;
+}
+.container {
+    max-width: 750px;
+}
+#TC {
+    text-align: center;
+    cursor: pointer;
+}

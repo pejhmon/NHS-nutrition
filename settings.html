@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		
+		<link href="lib/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+		<link href="lib/jquery/jquery-ui-1.11.2.min.css" rel="stylesheet" />
+		<link href="css/standardPage.css" rel="stylesheet"/>
+		<link href="css/weight.css" rel="stylesheet"/>
+		
+		<script src="lib/jquery/jquery-2.1.1.min.js"></script>
+		<script src="lib/jquery/jquery-ui-1.11.2.min.js"></script>
+		<script src="lib/bootstrap/bootstrap.min.js"></script>
+		
+		<script src="scripts/cookie.js"></script>
+		<script src="scripts/OnLoad.js"></script>
+		<script src="scripts/util/Validator.js"></script>
+		<script src="scripts/SubmitController.js"></script>
+		<script src="scripts/database/server/ServerDBAdapter.js"></script>
+		<script src="scripts/RequirementsCalculator.js"></script>
+		<script src="scripts/incrementButton.js"></script>
+		<script src="scripts/timepicker.js"></script>
+		<script src="scripts/Navigator.js"></script>
+
+		<title>APPetite</title>
+	</head>
+
+	<body onload="OnLoad.prototype.load('settings')">
+		<nav class="navbar navbar-default" role="navigation">
+    		
+ 				<div class="col-xs-2 border">
+ 					<button class="btn btn-default navbar-btn" id="nav-button" onclick="Navigator.prototype.back()">
+ 						<i class="glyphicon glyphicon-chevron-left"></i>
+ 					</button>
+    			</div>
+      			<div class="col-xs-8 border navbar-title">Settings</div>
+      			<div class="col-xs-2 visible-xs-block border">
+	      			<span style="float:right">
+	      				<button class="btn btn-default navbar-btn" data-toggle="collapse" 
+	      					data-target="#navbar-collapse" id="toggle-button">
+	      					<i class="glyphicon glyphicon-cog"></i>
+	      				</button>
+	     			</span>
+	      		</div>
+	      		<div class="collapse navbar-collapse" id="navbar-collapse">
+	      			<ul class="nav navbar-nav navbar-right">
+	        			
+	        			<li><a href="#" id="log_out" onclick="SubmitController.prototype.submit(this.id)">Log out</a></li>
+	      			</ul>
+	    		</div>
+      		
+		</nav>
+		<div class="container">
+		<h2 style="text-align: center">Amend requirements (for dieticians only)</h2>
+		<div class="panel-body">
+			<div class="whiteBackground">
+				<br>
+				<div class="container">
+					<div class="row">
+						<label class="col-sm-5">Current calorie requirements:
+							<span id="currentCals"></span> (kcal)
+						</label>
+						<div class="col-sm-3">
+							<input type='button' value='-' class='qtyMinusCal' field='quantity'>
+							<input type='text' name='quantity' id="cals" value='0' class='qty'>
+							<input type='button' value='+' class='qtyPlusCal' field='quantity'>
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class="container">
+					<div class="row">
+						<label class="col-sm-5">Current protein requirements:
+							<span id="currentProtein"></span> (g)
+						</label>
+						<div class="col-sm-3">
+							<input type='button' value='-' class='qtyMinusProt' field='quantity'>
+							<input type='text' name='quantity' id="protein" value='0' class='qty'>
+							<input type='button' value='+' class='qtyPlusProt' field='quantity'>
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class="container">
+					<div class="row">
+						<label class="col-sm-5">Current fluid requirements:
+							<span id="currentFluid"></span> (mls)
+						</label>
+						<div class="col-sm-3">
+							<input type='button' value='-' class='qtyMinusFluid' field='quantity'>
+							<input type='text' name='quantity' id="fluid" value='0' class='qty'>
+							<input type='button' value='+' class='qtyPlusFluid' field='quantity'>
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class="container">
+					<div class="row">
+						<label class="col-sm-5">Activity Level:
+							<span id="currentActivity"></span>
+						</label>
+						<div class="col-sm-3">
+							<input type='button' value='-' class='qtyMinusActivity' field='quantity'>
+							<input type='text' name='quantity' id="activity" value='0' class='qty'>
+							<input type='button' value='+' class='qtyPlusActivity' field='quantity'>
+						</div>
+					</div>
+				</div>
+				<br>
+			</div>
+		</div>
+		<button id="btn_submit_settings" class="btn btn-lg btn-success btn-block" 
+			onclick="SubmitController.prototype.submit(this.id)">Save changes</button>
+	</div>
+</body>
+</html>

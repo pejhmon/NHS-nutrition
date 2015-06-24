@@ -1,0 +1,70 @@
+body{
+	padding-bottom:40px;
+	background-color:#eee;
+
+}
+
+.nav-title{
+	text-align:center;
+	vertical-align:central;
+	color:white;
+	font-size:22px;
+	}
+	
+
+@media (max-width:767px){
+	#remember-me{
+		visibility:hidden;
+		}
+	
+	}
+
+	/* CSS REQUIRED */
+.state-icon {
+    left: -5px;
+}
+.list-group-item-primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(66, 139, 202);
+}
+
+/* DEMO ONLY - REMOVES UNWANTED MARGIN */
+.well .list-group {
+    margin-bottom: 0px;
+}
+
+label {
+    font: normal 22px;
+}
+h4
+{
+   text-align:center;
+   padding: 10px;
+   line-height: 1.3em;
+   
+   border-radius: 10px;
+   font-weight: normal;
+
+	}
+	#currentWeight {
+    text-align: left;
+
+}
+h1 { text-align: center; 
+}
+
+#newWeight{
+	width:80px;
+}
+#currentProtein{
+	color:red;
+}
+#currentCals{
+	color:red;
+}
+#currentFluid{
+	color:red;
+}
+#currentActivity{
+	color:red;
+}

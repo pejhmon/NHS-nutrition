@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<link href="lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="css/standardPage.css" rel="stylesheet">
+		<link href="lib/jquery/jquery-ui-1.11.2.min.css" rel="stylesheet">
+		<link href="css/timepicker.css" rel="stylesheet"/>
+		
+		<script src="scripts/database/server/ServerDBAdapter.js"></script>
+		<script src="lib/jquery/jquery-2.1.1.min.js"></script>
+		<script src="lib/jquery/jquery-ui-1.11.2.min.js"></script>
+		<script src="lib/bootstrap/bootstrap.min.js"></script>
+		<script src="scripts/util/Validator.js"></script>
+		<script src="scripts/SubmitController.js"></script>
+		<script src="scripts/RequirementsCalculator.js"></script>
+		<script src="scripts/Navigator.js"></script>
+		<script src="scripts/SignUpController.js"></script>
+    	<script src="scripts/util/dateTimePicker.js"></script>
+    	<script src="scripts/timepicker.js"></script>
+		
+    	<title>APPetite</title>
+	</head>
+	<body>
+ 		<nav class="navbar navbar-default" role="navigation">
+    		
+ 				<div class="col-xs-2 border">
+ 					<button class="btn btn-default navbar-btn" id="nav-button" onclick="Navigator.prototype.back()">
+ 						<i class="glyphicon glyphicon-chevron-left"></i>
+ 					</button>
+    			</div>
+      			<div class="col-xs-8 border navbar-title">Register</div>
+      		
+		</nav>
+		
+		
+		
+		
+    	<div class="container">
+    	
+      	<ul class="nav nav-tabs nav-justified" role="tablist">
+	    	<li role="presentation" class="active"><a href="#patient-pane" aria-controls="patient-pane" role="tab" data-toggle="tab">Register as Patient</a></li>
+	    	<li role="presentation"><a href="#doctor-pane" aria-controls="doctor-pane" role="tab" data-toggle="tab">Register as Dietician</a></li>
+	    </ul>
+	    
+	    
+	    
+
+		
+			<div class="tab-content tab-panel">
+				<div role="tabpanel" class="tab-pane active" id="patient-pane">
+				<form role="form" class="form-signup" id="patient_registration_form" method="post">	
+				<div class="panel panel-default element-margin">
+						<div class="panel-body tab-panel">
+
+							<table class="register-table">
+								<tr>
+									<td align="left"><label for="nhsnumber">NHS
+											Number:</label></td>
+									<td><input class="form-control" name="nhsnumber"
+										id="nhsnumber" type="text" placeholder="Enter your NHS number"
+										required></td>
+									<td><span><a href="#" data-toggle="popover"
+											data-trigger="focus" data-placement="top"
+											title="What is this?"
+											data-content="The NHS number is a unique 10-digit identifier for all people registered with the NHS."><i
+												class="glyphicon glyphicon-question-sign blue"></i></a></span></td>
+								</tr>
+								<tr>
+									<td align="left"><label for="password">Password:</label></td>
+									<td><input class="form-control" name="password"
+										id="password_user" type="password"
+										placeholder="Enter your password" required></td>
+									<td><span><a href="#" data-toggle="popover"
+											data-trigger="focus" data-placement="top"
+											title="What is this?"
+											data-content="Please enter the password you would like associated with your account."><i
+												class="glyphicon glyphicon-question-sign blue"></i></a></span></td>
+								</tr>
+								<tr>
+									<td align="left"><label for="password_again">Confirm
+											Password:</label></td>
+									<td><input class="form-control" name="password_again"
+										id="password_confirm_user" type="password"
+										placeholder="Confirm your password" required></td>
+									<td><span><a href="#" data-toggle="popover"
+											data-trigger="focus" data-placement="top"
+											title="What is this?"
+											data-content="Please confirm the password you would like associated with your account."><i
+												class="glyphicon glyphicon-question-sign blue"></i></a></span></td>
+								</tr>
+								<tr>
+									<td align="left"><label for="weight">Weight:</label></td>
+									<td><input class="form-control" name="weight" id="weight"
+										type="text" placeholder="Enter your weight" required></td>
+									<td><span><a href="#" data-toggle="popover"
+											data-trigger="focus" data-placement="top"
+											title="What is this?"
+											data-content="Please enter your current weight."><i
+												class="glyphicon glyphicon-question-sign blue"></i></a></span></td>
+								</tr>
+								<tr>
+									<td align="left"><label for="dob">Date of Birth:</label></td>
+									<td><input type="text" id="dob" name="dob"
+										class="form-control date"
+										placeholder="   Enter your date of birth" required></td>
+									<td><span><a href="#" data-toggle="popover"
+											data-trigger="focus" data-placement="top"
+											title="What is this?"
+											data-content="Please enter you date of birth."><i
+												class="glyphicon glyphicon-question-sign blue"></i></a></span></td>
+								</tr>
+								<tr>
+									<td align="left"><label for="activity_level">Activity
+											Level:</label></td>
+									<td><input class="form-control" name="activity_level"
+										id="activity_level" type="text"
+										placeholder="Enter your activity level" required></td>
+									<td><span><a href="#" data-toggle="popover"
+											data-trigger="focus" data-placement="top"
+											title="What is this?"
+											data-content="Your activity level reflects how active you are.
+											1.0 = bedbound 
+											1.1 = sedintary
+											1.2 = moderate 
+											1.3 = active
+											"><i
+												class="glyphicon glyphicon-question-sign blue"></i></a></span></td>
+								</tr>
+								<tr>
+									<td align="left"><label for="gender">Gender:</label></td>
+									<td align="left"><input class="radio_buttons optional"
+										id="user_basic_sex_male" name="user_basic[sex]" type="radio"
+										value="Male"> Male <input
+										class="radio_buttons optional" id="user_basic_sex_female"
+										name="user_basic[sex]" type="radio" value="Female">
+										Female</td>
+								</tr>
+
+							</table>
+		<h6 style="color:blue"  data-toggle="modal"
+								data-target="#modalTC" id="TC">I agree to the terms and conditions</h6>
+						</div>
+					</div>
+			<button id="btn_submit_userSignUpDetails" class="btn btn-lg btn-success btn-block" type="submit">Submit</button>
+			</form>
+				</div>			
+				<div role="tabpanel" class="tab-pane" id="doctor-pane">
+				<form role="form" class="form-signup" id="dietician_registration_form" method="post">	
+				<div class="panel panel-default element-margin">
+					<div class="panel-body tab-panel">
+	<table class="register-table">
+ 			<tr>
+			    <td align="left"><label for="id">Identifying number:</label></td>
+			    <td><input class="form-control" name="id" id="identifing_number" type="text" placeholder="Enter your identifing number"></td>
+			  <td><span><a href="#" data-toggle="popover" data-trigger="focus" data-placement="top" title="What is this?"
+		    data-content="This is your identifying dietician number, which will become your username. For example, 'DTXXXXX', where X is a digit from 0-9."
+		    ><i class="glyphicon glyphicon-question-sign blue"></i></a></span>
+	
+		    </td>
+			  </tr>
+			  <tr>
+			    <td align="left"><label for="identifying_password">Dietician Registration Password:</label></td>
+			    <td><input class="form-control" name="identifying_password" id="identifying_password" type="password" placeholder="Enter the identifying password."></td>
+			  <td><span><a href="#" data-toggle="popover" data-trigger="focus" data-placement="top" title="What is this?"
+		    data-content="To register as a dietician you must enter the password created by the administrators. If you do not know this, please contact the application
+		    				operations team."
+		    ><i class="glyphicon glyphicon-question-sign blue"></i></a></span>
+		    </td>
+			  </tr>
+			  
+			  <tr>
+			    <td align="left"><label for="password">Account Password:</label></td>
+			    <td><input class="form-control" name="password" id="password_dietician" type="password" placeholder="Enter your password"></td>
+			  <td><span><a href="#" data-toggle="popover" data-trigger="focus" data-placement="top" title="What is this?"
+		    data-content="Please enter the password you would like associated with your account."
+		    ><i class="glyphicon glyphicon-question-sign blue"></i></a></span>
+		    </td>
+			  </tr>
+			  <tr>
+			    <td align="left"><label for="password_dietician_confirm">Confirm Account Password:</label></td>
+			    <td><input class="form-control" name="password_again" id="password_confirm_dietician" type="password" placeholder="Confirm your password"></td>
+			  <td><span><a href="#" data-toggle="popover" data-trigger="focus" data-placement="top" title="What is this?"
+		    data-content="Please confirm the password you would like associated with your account."
+		    ><i class="glyphicon glyphicon-question-sign blue"></i></a></span>
+		    </td>
+			  </tr>
+			  
+		</table><br>
+		<h6 style="color:blue"  data-toggle="modal"
+								data-target="#modalTC" id="TC">I agree to the terms and conditions</h6>
+								
+					</div>
+				</div>
+	<button id="btn_submit_dieticianSignUpDetails" class="btn btn-lg btn-success btn-block btn-signup">Submit</button>	
+	</form>		
+	</div>
+		</div>
+			
+		</div>
+		    	<div class="modal fade" id="modalTC" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+  			<div class="modal-dialog">
+    			<div class="modal-content">
+      				<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal">
+        					<span aria-hidden="true">&times;</span>
+        					<span class="sr-only">Close</span>
+        				</button>
+        				<h4 class="modal-title" id="modal-info-title"></h4>
+      				</div>
+      				<div class="modal-body" id="modal-info-body">
+      				<p>
+      				To use this application you must agree to the following terms and conditions:<br><br>
+      				
+Appetite is intended for use in adult patients over the age of 18. It is specifically
+designed for patients who are undergoing treatment for a cancer diagnosis or who
+have recently completed treatment for cancer. Appetite should be used by a patient
+in collaboration with their dietitian / hospital team.<br><br>
+
+This application will enable monitoring of daily food intake in relation to personalised
+nutritional requirements. It is also designed to help the dietitian / healthcare
+professional to monitor changes in food and nutritional intake and advise you more
+specifically on your nutritional needs. It is therefore important to enter information
+into the application as accurately as possible. This will enable advice and
+interventions to be delivered by your healthcare professional / dietitian appropriately.<br><br>
+
+This application is not a substitute for advice that you have been given by your
+healthcare professional. It has been designed to help you and your hospital team to
+monitor your nutritional intake. It is strongly advised that you contact your hospital
+team should your application bring up any alerts that suggest you need to discuss the
+information you have entered. Failure to do so could compromise your health.<br><br>
+
+When you register for the Appetite application, the information that you enter will be
+anonymous and can only be accessed by persons nominated by you including your
+dietitian. The data collected by Appetite may be used for research purposes by your
+hospital team although information used will remain anonymous at all times.</p>
+      				</div>
+      				<div class="modal-footer" id="modal-info-footer">
+
+					<div class="checkbox col-xs-6">
+						<label><input type="checkbox" id="TCCheckbox" value="">I Agree</label>
+
+					</div>
+					<button type="button" class="modal-button btn btn-success col-xs-2" id="" data-dismiss="modal">Done</button>
+      				
+      				</div>
+    			</div>
+  			</div>
+		</div>
+  	</body>
+</html>

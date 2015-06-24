@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	    <meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<link href="lib/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+    	<link href="lib/jquery/jquery-ui-1.11.2.min.css" rel="stylesheet" />
+    	<link href="css/standardPage.css" rel="stylesheet">
+    	<link href="css/timepicker.css" rel="stylesheet">
+    	
+    	<script src="lib/jquery/jquery-2.1.1.min.js"></script>
+		<script src="lib/jquery/jquery-ui-1.11.2.min.js"></script>
+    	<script src="lib/bootstrap/bootstrap.min.js"></script>
+    	
+    	<script src="scripts/cookie.js"></script>
+    	<script src="scripts/OnLoad.js"></script>
+    	<script src="scripts/util/Validator.js"></script>
+    	<script src="scripts/SubmitController.js"></script>
+		<script src="scripts/database/server/ServerDBAdapter.js"></script>
+    	<script src="scripts/database/local/symptomJSON.js"></script>
+    	<script src="scripts/database/local/foodDataJSON.js"></script>
+    	<script src="scripts/utiltyItems.js"></script>
+    	<script src="scripts/foodList.js"></script>
+    	<script src="scripts/timepicker.js"></script>
+    	<script src="scripts/util/dateTimePicker.js"></script>
+    	<script src="scripts/Navigator.js"></script>
+    	
+    	<title>APPetite</title>
+  	</head>
+  	<body onload="OnLoad.prototype.load('food')">
+ 		<nav class="navbar navbar-default" role="navigation">
+    		<!-- <div class="row"> -->
+ 				<div class="col-xs-2 border">
+ 					<button class="btn btn-default navbar-btn" id="nav-button" onclick="Navigator.prototype.back()">
+ 						<i class="glyphicon glyphicon-chevron-left"></i>
+ 					</button>
+    			</div>
+      			<div class="col-xs-8 border navbar-title">Food</div>
+      			<div class="col-xs-2 visible-xs-block border">
+	      			<span style="float:right">
+	      				<button class="btn btn-default navbar-btn" data-toggle="collapse" 
+	      					data-target="#navbar-collapse" id="toggle-button">
+	      					<i class="glyphicon glyphicon-cog"></i>
+	      				</button>
+	     			</span>
+	      		</div>
+	      		<div class="collapse navbar-collapse" id="navbar-collapse">
+	      			<ul class="nav navbar-nav navbar-right">
+	        			<li><a href="#" id="log_out" onclick="SubmitController.prototype.submit(this.id)">Log out</a></li>
+	      			</ul>
+	    		</div>
+      		<!-- </div> -->
+		</nav>
+    	<div class="container">
+    		<div class="search-field">
+      			<div class="input-group input-group-lg">
+  					<input type="text" class="form-control"  placeholder="Enter food" id="search">
+  					<span class="input-group-btn">
+    					<button class="btn btn-default" type="button" id="searchButton">
+    						<span class="glyphicon glyphicon-search"></span>
+    					</button>
+	    				<button class="btn btn-default" type="button" data-toggle="modal" 
+    						data-target="#modal-date" id="button-calendar">
+	    					<span class="glyphicon glyphicon-calendar"></span>
+	    				</button>
+  					</span>
+				</div>
+		    	<div class="btn-group btn-group-justified" style="padding-top:10px;" role="group" aria-label="...">
+  					<div class="btn-group" role="group">
+    					<button type="button" class="btn btn-default" data-toggle="modal" 
+    						data-target="#modalInfo" id="newFood">New food
+    					</button>
+  					</div>
+  					<div class="btn-group" role="group">
+    					<button type="button" class="btn btn-default" data-toggle="modal" 
+    						data-target="#modalInfo" id="frequentFood">Frequent
+    						<span class="badge" id="frequentConter"></span>
+    					</button>
+					</div>
+  					<div class="btn-group" role="group">
+    					<button type="button" class="btn btn-default" data-toggle="modal" 
+    						data-target="#modalInfo" id="myMeals">My meals
+    						<span class="badge" id="mealCounter"></span>
+    					</button>
+  					</div>
+ 				</div>
+			</div>
+			<div class="panel panel-default element-margin">
+  				<div class="panel-heading">
+	  				<div class="row">
+	  					<div class="col-xs-6">
+	  						<span>Selected food</span>
+	  					</div>
+	  					<div class="col-xs-6" align="right">
+	  						<button type="button" class="btn btn-xs btn-info" id="newMeal" data-toggle="modal" 
+    						data-target="#modalInfo">
+	  						Save this meal
+	  						</button>
+	  					</div>
+	  				</div>
+  				</div>
+				<div class="panel-body selection-body">
+					<div class="selection-list"><ul class="list-group" role="menu"></ul></div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading collapsed" href="#breakDown" aria-expanded="true" 
+					data-toggle="collapse" aria-controls="breakDown">Nutritional breakdown
+				</div>
+  				<div class="panel-body panel-collapse collapse in" role="tabpanel" id="breakDown">
+  					<table class="table">
+  						<thead>
+  							<tr>
+  								<th>Calories (kcal)</th>
+  								<th>Protein (g)</th>
+  								<th>Fluid (ml)</th>
+  							</tr>
+  						</thead>
+  						<tbody>
+			  				<tr>
+				  				<td id="calories">0</td>
+				  				<td id="protein">0</td>
+				  				<td id="fluid">0</td>
+			  				</tr>
+		  				</tbody>
+  					</table>
+  				</div>
+			</div>
+		    <div id="submitSession">
+		    	<button class="btn btn-lg btn-success btn-block" id="btn_submit_foods"
+		    		onclick="SubmitController.prototype.submit(this.id)">Submit</button> 
+		    </div>
+    	</div>
+    	<div class="modal fade" id="modalInfo" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+  			<div class="modal-dialog">
+    			<div class="modal-content">
+      				<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal">
+        					<span aria-hidden="true">&times;</span>
+        					<span class="sr-only">Close</span>
+        				</button>
+        				<h4 class="modal-title" id="modal-info-title"></h4>
+      				</div>
+      				<div class="modal-body" id="modal-info-body"></div>
+      				<div class="modal-footer" id="modal-info-footer">
+      				
+      				<button type="button" class="modal-button btn btn-success" id="" data-dismiss="modal">Done</button>
+      				
+      				</div>
+    			</div>
+  			</div>
+		</div>
+		
+		<div class="modal fade" id="modal-date" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+  			<div class="modal-dialog">
+    			<div class="modal-content">
+      				<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal">
+        					<span aria-hidden="true">&times;</span>
+        					<span class="sr-only">Close</span>
+        				</button>
+        				<h4 class="modal-title">Date&Time</h4>
+      				</div>
+      				<div class="modal-body">
+      						<form class="modal-form">
+      						<input type="text" id="Date" class="form-control date" placeholder="Date" readonly="readonly" style="cursor :default">
+      						<input type="text" id="Time" class="form-control time" placeholder="Time" readonly="readonly" style="cursor :default">
+      						</form>
+      				</div>
+      				<div class="modal-footer">
+        				<button type="button" class="btn btn-success" data-dismiss="modal">Done</button>
+      				</div>
+    			</div>
+  			</div>
+		</div>
+		
+  	</body>
+</html>
