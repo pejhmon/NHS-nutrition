@@ -36,7 +36,7 @@ if(isset($dataDecoded['where']))
 	$whereDecoded = $dataDecoded['where'];
 	$where = explode(",", $whereDecoded); 
 	unset($dataDecoded['where']);
-} else { $where = null; }
+}
 if(isset($dataDecoded['number']))
 {
 	$number = $dataDecoded['number'];
@@ -80,7 +80,6 @@ if(isset($dataDecoded['userHash']))
 switch($action)
 {
 	case 'get':						get($db, $table, $where); break;
-	case 'getUsers':				getUsers($db, $table, $where); break;
 	case 'getUserProfile':			getUserProfile($db, $table, $where); break; 
 	case 'getVisualisationData':	getUserData($db, $dataDecoded); break;
 	case 'getLast':					getLast($db, $table, $where); break;
@@ -90,28 +89,6 @@ switch($action)
 	case 'usernameUnique':			usernameUnique($db, $dataDecoded); break;
 	case 'getUserId':				getUserId($db, $dataDecoded); break;
 }
-
-
-/**
- * Returns data with specific columns about the users registered.
- * For the dietitian view of the directory. 
- */
-function getUsers($db, $table, $where)
-{
-	$group = 1;
-	$whereCond = array('group','=',$group);
-	if($where) 
-	{ 
-		for($i = 0; $i < count($where); $i++)
-		{
-			array_push($whereCond, $where[$i]);
-		} 
-	}
-	
-	$results = $db->action('SELECT nhsnumber, dateofbirth, gender, activitylevel', $table, $whereCond)->results();
-	echo json_encode($results); 
-}
-
 
 /**
  * Returns the user ID. 
@@ -168,7 +145,6 @@ function confirmIDPassword($db, $dataDecoded)
  */
 function get($db, $table, $where) 
 {
-	echo $table; var_dump($where);
 	$results = $db->get($table, $where)->results(); 
 	echo json_encode($results);
 }
