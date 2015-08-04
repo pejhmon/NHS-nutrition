@@ -24,7 +24,12 @@ class DB
 	{
 		try 
 		{
-            $this->_pdo = new PDO ("sqlsrv:Server=appetite.database.windows.net;Database=appetite","app","Admin12£");
+            $server = "tcp:appetite.database.windows.net,1433";
+            $database = "appetite"; 
+            $username = "app";
+            $password = "Admin12£";
+            
+            $this->_pdo = new PDO ("sqlsrv:server=$server ; Database= $database", $username, $password);
             $this->_pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
             
 			//$this->_pdo = new PDO('mysql:host=' . Configurations::get('mysql/host') . ';dbname=' . Configurations::get('mysql/db'), Configurations::get('mysql/userName'), Configurations::get('mysql/passCode'));

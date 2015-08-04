@@ -16,15 +16,16 @@ session_start();
  */
 $GLOBALS['config'] = array(
 	'mysql' => array(
-        'host' 			=> 'appetite.database.windows.net,1433',
-		'userName'	 	=> 'app',
-		'passCode'	 	=> 'Admin12£',
-		'db'	 		=> 'appetite'
+        'host' 			=> "tcp:appetite.database.windows.net,1433",
+		'userName'	 	=> "app",
+		'passCode'	 	=> "Admin12£",
+		'db'	 		=> "appetite"
         
 //		'host' 			=> '127.0.0.1',
 //		'userName'	 	=> 'root',
 //		'passCode'	 	=> '',
 //		'db'	 		=> 'appetite'
+        
 	),
 	'remember' => array(
 		'cookie_name'	=> 'appetiteCookieHash',
