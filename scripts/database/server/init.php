@@ -12,14 +12,19 @@
 session_start(); 
 
 /*
- * Creating a gloabl array for easy access to data.  
+ * Creating a gloabl array for easy access to data. 
  */
 $GLOBALS['config'] = array(
 	'mysql' => array(
-		'host' 			=> '127.0.0.1',
-		'userName'	 	=> 'root',
-		'passCode'	 	=> '',
+        'host' 			=> 'appetite.database.windows.net,1433',
+		'userName'	 	=> 'app',
+		'passCode'	 	=> 'Admin12£',
 		'db'	 		=> 'appetite'
+        
+//		'host' 			=> '127.0.0.1',
+//		'userName'	 	=> 'root',
+//		'passCode'	 	=> '',
+//		'db'	 		=> 'appetite'
 	),
 	'remember' => array(
 		'cookie_name'	=> 'appetiteCookieHash',
